@@ -24,6 +24,7 @@ public class EconomicSystem : MonoBehaviour
     void Init()
     {
         data = new EconomicSystemData();
+
     }
 
     #endregion base
