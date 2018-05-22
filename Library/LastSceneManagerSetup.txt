@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Economic System/Scenes/Economic Simulation.unity
+  isLoaded: 1
+  isActive: 1
