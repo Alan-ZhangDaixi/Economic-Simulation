@@ -74,8 +74,10 @@
     <Compile Include="Assets\Economic System\Scripts\Logic\Player\EcoPlayerGroupLogic.cs" />
     <Compile Include="Assets\Economic System\Scripts\Logic\Player\EcoPlayerLogic.cs" />
     <Compile Include="Assets\Economic System\Scripts\Model\EconomicSystemModel.cs" />
-    <Compile Include="Assets\Economic System\Scripts\Model\EcoPlayerGroupModel.cs" />
-    <Compile Include="Assets\Economic System\Scripts\Model\EcoPlayerModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Place\CityModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Place\TargetPlaceModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Player\EcoPlayerGroupModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Player\EcoPlayerModel.cs" />
     <Compile Include="Assets\Economic System\Scripts\UI\EconomicSystemUI.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Lyan/Documents/GitHub/Economic-Simulation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
