@@ -23,13 +23,22 @@ public class EcoPlayerLogic
 
     public Vector2 targetPos { get; private set; }
 
-    public bool isArrive { get { return (data.localPos - targetPos).sqrMagnitude < 1.0f; } }
+    public bool isArrive { get { return (data.localPos - targetPos).sqrMagnitude < data.moveSpeed * timeScale; } }
+
+    public float timeScale = 1.0f;
+
+    public const float TimeCost = 0.02f; 
 
     #region base function
 
-    void Update()
+    /// <summary>
+    /// 由simulator或者外界调用
+    /// </summary>
+    public void FixedUpdate()
     {
         Move2TargetPlace();
+        CostTiredInPlace();
+        RecoverTired();
     }
 
     #endregion base function
@@ -52,19 +61,42 @@ public class EcoPlayerLogic
     {
         if (targetPlaceLogic == null) return;
 
-        if (isArrive) return;
+        if (isArrive)
+        {
+            data.localPos = targetPos;
+        }
+        else
+        {
+            Vector2 dir = (targetPos - data.localPos).normalized;
+            data.localPos += dir * data.moveSpeed * timeScale;
+        }    
+    }
 
+    public void CostTiredInPlace()
+    {
+        if (targetPlaceLogic == null) return;
 
+        if (!data.isActive) return;
 
-        //data.targetId = place.baseData.id;
-        //targetPlaceLogic = place;
-        //
-        //RandomHelper.ResetRandomSeed((data.id * targetPlaceLogic.baseData.id) % (Time.frameCount % 12000));
-        //Rect placeRect = targetPlaceLogic.baseData.rect;
-        //Vector2 min = placeRect.min;
-        //Vector2 max = placeRect.max;
-        //targetPos = new Vector2(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
-        //
-        //data.NotifyDataChange();
+        data.tired -= targetPlaceLogic.baseData.tiredFac * TimeCost * timeScale;
+
+        if(data.tired < 0.0f)
+        {
+            data.tired = 0.0f;
+            data.isActive = false;
+        }
+    }
+
+    public void RecoverTired()
+    {
+        if (data.isActive) return;
+
+        data.tired += data.recoverTiredFac * TimeCost * timeScale;
+
+        if(data.tired > 100.0f)
+        {
+            data.tired = 100.0f;
+            data.isActive = true;
+        }
     }
 }

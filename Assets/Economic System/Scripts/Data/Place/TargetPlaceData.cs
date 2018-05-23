@@ -21,6 +21,6 @@ public abstract class TargetPlaceData
 
     public bool isActive;
 
-    public float tiredFac;                   //疲劳度系数，玩家在该区域疲劳度会降低
+    public float tiredFac;                   //疲劳度系数，每秒减少多少疲劳度，玩家在该区域疲劳度会降低
 }
 

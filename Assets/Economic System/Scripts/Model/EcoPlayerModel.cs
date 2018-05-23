@@ -20,6 +20,4 @@ public class EcoPlayerModel : MonoBehaviour
     }
 
     #endregion
-
-
 }

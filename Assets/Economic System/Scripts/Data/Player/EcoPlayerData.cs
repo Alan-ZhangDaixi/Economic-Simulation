@@ -7,13 +7,15 @@ using System;
 public class EcoPlayerData
 {
     // Construct
-    public EcoPlayerData(int id, long money, long realMoney, byte greed, byte realGreed, byte vanity, byte chanllenge, byte constancy, byte freshness, float tired)
+    public EcoPlayerData(int id, long money, long realMoney, byte greed, byte realGreed, byte vanity, byte chanllenge, byte constancy, byte freshness, float tired, float recoverTiredFac)
     {
         this.id = id;
         isAway = false;
+        isActive = true;
 
         achievability = 50.0f;
         this.tired = tired;
+        this.recoverTiredFac = recoverTiredFac;
 
         roleLevel = 1;
         roleExp = 0;
@@ -40,6 +42,7 @@ public class EcoPlayerData
     {
         this.id = id;
         isAway = false;
+        isActive = true;
 
         achievability = 50.0f;
 
@@ -54,6 +57,7 @@ public class EcoPlayerData
         moveSpeed = 1.0f;
 
         tired = clone.tired;
+        recoverTiredFac = clone.recoverTiredFac;
         money = clone.money;
         realMoney = clone.realMoney;
         greed = clone.greed;
@@ -75,7 +79,11 @@ public class EcoPlayerData
 
     public float achievability;        //玩家的成就感，成就感为0，玩家就会流失 (满足度通过玩家参与游戏里面不同的内容，根据玩家的基础属性，来进行提升和降低)
 
-    public float tired;               //玩家的疲劳度（人不可能天天24小时耍游戏）
+    public float tired;                //玩家的疲劳度（人不可能天天24小时耍游戏）
+
+    public float recoverTiredFac;      //疲劳值回复速度，每秒增加多少tired
+
+    public bool isActive; 
 
     #region 物质        
 
