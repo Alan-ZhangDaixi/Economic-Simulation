@@ -309,6 +309,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Economic System\Scripts\Common\RandomHelper.cs" />
     <Compile Include="Assets\Economic System\Scripts\Controler\EcoPlayerSimulator.cs" />
     <Compile Include="Assets\Economic System\Scripts\Data\EconomicSystemData.cs" />
     <Compile Include="Assets\Economic System\Scripts\Data\Place\CityData.cs" />

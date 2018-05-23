@@ -5,6 +5,7 @@ public class CityLogic : TargetPlaceLogic
 {
     public CityLogic(EconomicSystemLogic ecoSysLogic, TargetPlaceData data)
     {
+        baseData = data;
         this.data = data as CityData;
         this.ecoSysLogic = ecoSysLogic;
     }

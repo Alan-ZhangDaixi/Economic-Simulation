@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 /// <summary>
 /// 为了方便，该数据既可以作为设计数据，又可以作为实时数据
@@ -22,6 +23,7 @@ public class EcoPlayerData
 
         targetId = 0;
         localPos = Vector2.zero;
+        moveSpeed = 1.0f;
 
         this.money = money;
         this.realMoney = realMoney;
@@ -49,6 +51,7 @@ public class EcoPlayerData
 
         targetId = 0;
         localPos = Vector2.zero;
+        moveSpeed = 1.0f;
 
         tired = clone.tired;
         money = clone.money;
@@ -124,9 +127,11 @@ public class EcoPlayerData
 
     public int id;                   //该数据id，不可重复
                                      
-    public byte targetId;            //target可以理解成玩家当前所想要去的场所(比如交易所，练级点)
+    public int targetId;            //target可以理解成玩家当前所想要去的场所(比如交易所，练级点)
                                      
     public Vector2 localPos;         //当前游戏角色在模拟区域的局部坐标
+
+    public float moveSpeed;
 
     public bool isAway;                //当前玩家是否流失
 
@@ -217,5 +222,12 @@ public class EcoPlayerData
             return 4;
 
         return -1;
+    }
+
+    public event Action onDataChange;
+    public void NotifyDataChange()
+    {
+        if (onDataChange != null)
+            onDataChange();
     }
 }
