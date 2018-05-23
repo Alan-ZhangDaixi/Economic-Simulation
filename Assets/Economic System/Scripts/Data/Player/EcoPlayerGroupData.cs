@@ -75,6 +75,8 @@ public class EcoPlayerGroupData
         if (idx < 0 || idx >= playersCnt) return;
 
         ecoPlayers[idx].isAway = true;
+
+        NotifyDataAwayChange(ecoPlayers[idx].id);
     }
 
     /// <summary>
@@ -85,6 +87,39 @@ public class EcoPlayerGroupData
         if (!ecoPlayersDic.ContainsKey(id)) return;
 
         ecoPlayersDic[id].isAway = true;
+
+        NotifyDataAwayChange(id);
+    }
+
+    /// <summary>
+    /// 玩家回流
+    /// </summary>
+    public void PlayerBackByIndex(int idx)
+    {
+        if (idx < 0 || idx >= playersCnt) return;
+
+        ecoPlayers[idx].isAway = false;
+
+        NotifyDataAwayChange(ecoPlayers[idx].id);
+    }
+
+    /// <summary>
+    /// 玩家回流
+    /// </summary>
+    public void PlayerBackById(int id)
+    {
+        if (!ecoPlayersDic.ContainsKey(id)) return;
+
+        ecoPlayersDic[id].isAway = false;
+
+        NotifyDataAwayChange(id);
+    }
+
+    public event Action<int> onDataAwayChange;
+    public void NotifyDataAwayChange(int id)
+    {
+        if (onDataAwayChange != null)
+            onDataAwayChange(id);
     }
 }
 

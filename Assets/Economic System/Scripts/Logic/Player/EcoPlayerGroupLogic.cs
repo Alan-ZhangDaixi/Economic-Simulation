@@ -22,6 +22,7 @@ public class EcoPlayerGroupLogic
     }
 
     public EconomicSystemLogic ecoSysLogic { get; private set; }
+
     public EcoPlayerGroupData groupData { get; private set; }
 
     EcoPlayerLogic[] ecoPlayerLogics;
@@ -60,6 +61,5 @@ public class EcoPlayerGroupLogic
     {
         groupData.PlayerLeaveById(id);
     }
-
 }
 

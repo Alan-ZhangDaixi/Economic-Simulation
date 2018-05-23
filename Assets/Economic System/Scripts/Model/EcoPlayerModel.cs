@@ -25,7 +25,7 @@ public class EcoPlayerModel : MonoBehaviour
 
     #region base function
 
-    void Init(EcoPlayerData data)
+    public void Init(EcoPlayerData data)
     {
         this.data = data;
     }
@@ -36,7 +36,7 @@ public class EcoPlayerModel : MonoBehaviour
 
     void UpdatePos()
     {
-
+        transform.position = data.localPos;
     }
 
     #endregion functions
