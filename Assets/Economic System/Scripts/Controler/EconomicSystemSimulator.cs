@@ -22,7 +22,6 @@ public class EconomicSystemSimulator : MonoBehaviour
         economicSystemUI = gameObject.AddComponent<EconomicSystemUI>();
         ecoSysData = new EconomicSystemData();
         ecoSysLogic = new EconomicSystemLogic(ecoSysData);
-
     }
 }
 

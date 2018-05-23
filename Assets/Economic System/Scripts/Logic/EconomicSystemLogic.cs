@@ -7,8 +7,9 @@ public class EconomicSystemLogic
     {
         ecoSysdata = data;
         ecoPlayerGroupLogicDic = new Dictionary<int, EcoPlayerGroupLogic>();
-        
-        foreach(KeyValuePair<int, EcoPlayerGroupData> i in ecoSysdata.groupsDicById)
+        targetPlaceLogicDic = new Dictionary<int, TargetPlaceLogic>();
+
+        foreach (KeyValuePair<int, EcoPlayerGroupData> i in ecoSysdata.groupsDicById)
             AddEcoPlayerGroupLogicByData(i.Value);
 
         foreach (KeyValuePair<int, TargetPlaceData> i in ecoSysdata.placesDicById)
@@ -19,7 +20,7 @@ public class EconomicSystemLogic
     public Dictionary<int, EcoPlayerGroupLogic> ecoPlayerGroupLogicDic;
     public Dictionary<int, TargetPlaceLogic> targetPlaceLogicDic;
 
-    // functions
+    #region functions
 
     public int AddPlaceLogicByData(TargetPlaceData data)
     {
@@ -37,6 +38,8 @@ public class EconomicSystemLogic
         EcoPlayerGroupLogic logic = new EcoPlayerGroupLogic(this, data);
         ecoPlayerGroupLogicDic[data.groupId] = logic;
         return data.groupId;
-    } 
+    }
+
+    #endregion functions
 }
 

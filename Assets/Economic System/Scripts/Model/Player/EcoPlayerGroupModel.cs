@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class EcoPlayerGroupModel : MonoBehaviour
 {
+    public EconomicSystemModel ecoSysModel { get; private set; }
+
     public EcoPlayerGroupData groupData { get; private set; }
 
     EcoPlayerModel[] ecoPlayerModels;
@@ -10,6 +12,8 @@ public class EcoPlayerGroupModel : MonoBehaviour
     Dictionary<int, EcoPlayerModel> ecoPlayerModelsDic;
 
     public int playersCnt { get; private set; }
+
+    public GameObject ecoPlayerPrefab { get; private set; }
 
     #region mono functions
 
@@ -37,8 +41,10 @@ public class EcoPlayerGroupModel : MonoBehaviour
 
     #region base function
 
-    void Init(EcoPlayerGroupData data, GameObject prefab)
+    public void Init(EconomicSystemModel ecoSysModel, EcoPlayerGroupData data, GameObject ecoPlayerPrefab)
     {
+        this.ecoSysModel = ecoSysModel;
+        this.ecoPlayerPrefab = ecoPlayerPrefab;
         groupData = data;
         ecoPlayerModels = new EcoPlayerModel[groupData.playersCnt];
         ecoPlayerModelsDic = new Dictionary<int, EcoPlayerModel>();
@@ -46,7 +52,7 @@ public class EcoPlayerGroupModel : MonoBehaviour
         for (int i = 0; i < groupData.playersCnt; i++)
         {
             EcoPlayerData ecoPlayerData = groupData.GetPlayerDataById(groupData.startId + i);
-            GameObject model = GameObject.Instantiate(prefab);
+            GameObject model = GameObject.Instantiate(ecoPlayerPrefab);
             model.transform.parent = transform;
             model.transform.position = ecoPlayerData.localPos;
             model.transform.eulerAngles = Vector3.zero;
