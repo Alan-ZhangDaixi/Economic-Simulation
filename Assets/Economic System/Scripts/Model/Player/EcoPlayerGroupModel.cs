@@ -53,6 +53,7 @@ public class EcoPlayerGroupModel : MonoBehaviour
         {
             EcoPlayerData ecoPlayerData = groupData.GetPlayerDataById(groupData.startId + i);
             GameObject model = GameObject.Instantiate(ecoPlayerPrefab);
+            model.name = "id " + ecoPlayerData.id + " Eco Player";
             model.transform.parent = transform;
             model.transform.position = ecoPlayerData.localPos;
             model.transform.eulerAngles = Vector3.zero;

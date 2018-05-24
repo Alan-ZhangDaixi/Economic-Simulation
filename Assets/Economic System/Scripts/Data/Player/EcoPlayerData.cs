@@ -150,15 +150,15 @@ public class EcoPlayerData
     {
         get
         {
-            string s_money = ParamsRankStr(money) + " money";
-            string s_realMoney = ParamsRankStr(realMoney) + " real money";
+            string s_money = money + " ☆";//ParamsRankStr(money) + " money";
+            string s_realMoney = realMoney + " ＄";//ParamsRankStr(realMoney) + " real money";
 
-            string s_greed = ParamsRankStr(greed) + " greed";
-            string s_realGreed = ParamsRankStr(realGreed) + " real greed";
-            string s_vanity = ParamsRankStr(vanity) + " vanity";
-            string s_chanllenge = ParamsRankStr(chanllenge) + " chanllenge";
-            string s_durability = ParamsRankStr(constancy) + " durability";
-            string s_freshness = ParamsRankStr(freshness) + " freshness";
+            string s_greed = ParamsRank(greed) + " gre";//" greed";
+            string s_realGreed = ParamsRank(realGreed) + " rgre";// " real greed";
+            string s_vanity = ParamsRank(vanity) + " van";// " vanity";
+            string s_chanllenge = ParamsRank(chanllenge) + " cha";// " chanllenge";
+            string s_durability = ParamsRank(constancy) + " dur";//" durability";
+            string s_freshness = ParamsRank(freshness) + " fre";// " freshness";
 
             return s_money + " " + s_realMoney + " " +
                    s_greed + " " + s_realGreed + " " +

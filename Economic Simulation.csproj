@@ -310,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Economic System\Scripts\Common\RandomHelper.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Controler\EconomicSystemSimulator.cs" />
     <Compile Include="Assets\Economic System\Scripts\Controler\EcoPlayerSimulator.cs" />
     <Compile Include="Assets\Economic System\Scripts\Data\EconomicSystemData.cs" />
     <Compile Include="Assets\Economic System\Scripts\Data\Place\CityData.cs" />
@@ -322,7 +323,11 @@
     <Compile Include="Assets\Economic System\Scripts\Logic\Place\TargetPlaceLogic.cs" />
     <Compile Include="Assets\Economic System\Scripts\Logic\Player\EcoPlayerGroupLogic.cs" />
     <Compile Include="Assets\Economic System\Scripts\Logic\Player\EcoPlayerLogic.cs" />
-    <Compile Include="Assets\Economic System\Scripts\Model\EcoPlayerModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\EconomicSystemModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Place\CityModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Place\TargetPlaceModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Player\EcoPlayerGroupModel.cs" />
+    <Compile Include="Assets\Economic System\Scripts\Model\Player\EcoPlayerModel.cs" />
     <Compile Include="Assets\Economic System\Scripts\UI\EconomicSystemUI.cs" />
   </ItemGroup>
   <ItemGroup>

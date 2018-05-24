@@ -39,7 +39,7 @@ public class EconomicSystemModel : MonoBehaviour
 
     #region base functions
 
-    void Init(EconomicSystemData data, GameObject placePrefab, GameObject ecoPlayerGroupPrefab, GameObject ecoPlayerPrefab)
+    public void Init(EconomicSystemData data, GameObject placePrefab, GameObject ecoPlayerGroupPrefab, GameObject ecoPlayerPrefab)
     {
         ecoSysdata = data;
         this.placePrefab = placePrefab;
@@ -75,6 +75,7 @@ public class EconomicSystemModel : MonoBehaviour
         if (data.type == TargetPlaceType.City)
         {
             GameObject model = GameObject.Instantiate(placePrefab);
+            model.name = "id " + data.id + " " + data.type;
             model.transform.parent = placeParent.transform;
             model.transform.position = data.rect.center;
             model.transform.eulerAngles = Vector3.zero;
@@ -89,6 +90,7 @@ public class EconomicSystemModel : MonoBehaviour
     public int AddEcoPlayerGroupModelByData(EcoPlayerGroupData data)
     {
         GameObject model = GameObject.Instantiate(ecoPlayerGroupPrefab);
+        model.name = "id " + data.groupId + " " + data.groupType;
         model.transform.parent = ecoPlayerGroupParent.transform;
         model.transform.position = Vector3.zero;
         model.transform.eulerAngles = Vector3.zero;
